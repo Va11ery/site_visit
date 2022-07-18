@@ -7,18 +7,21 @@
         max-width="90"
       ></v-img>
     </v-btn>
-    <v-app-bar-title class="ml-5">ООО КГБ</v-app-bar-title>
-    <v-tabs centered>
-      <v-tab>Tab 1</v-tab>
-      <v-tab>Tab 2</v-tab>
-      <v-tab>Tab 3</v-tab>
+    <v-toolbar-title class="ml-5">ООО КГБ</v-toolbar-title>
+
+    <v-tabs centered exact-active-class>
+      <v-tab to="/">Главная</v-tab>
+      <v-tab to="/general">Услуги</v-tab>
+      <v-tab to="/about">Лицензия</v-tab>
+      <v-tab to="/about">Контакты</v-tab>
+      <v-tab to="/about">Вакансии</v-tab>
     </v-tabs>
   </v-app-bar>
 </template>
 
 <script>
 export default {
-  name: 'HeaderLayout',
+  name: 'TheHeader',
 }
 </script>
 
@@ -27,5 +30,7 @@ export default {
   height: 90px;
   width: 90px;
 }
-
+.v-toolbar__title {
+  min-width: 83px;
+}
 </style>
