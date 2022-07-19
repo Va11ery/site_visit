@@ -1,5 +1,5 @@
 <template>
-  <h1>dsadasasdasdas</h1>
+  <h1>Я нижняя часть экрана</h1>
 </template>
 
 <script>

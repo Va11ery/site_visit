@@ -9,7 +9,7 @@
     </v-carousel>
     <v-banner
       single-line
-      elevation="24"
+      elevation="0"
       class="page-title text-center page-h6"
       color="grey darken-3"
     >
@@ -44,30 +44,85 @@
         </v-row>
       </v-list>
     </v-container>
-    <v-card elevation="1" dark color="#616161">
-      <v-card-title class="justify-center page-h6"
-        >Наши преимущества</v-card-title
-      >
-      <v-container>
-        <v-row>
-          <v-col
-            v-for="(i, index) in card_list"
-            :key="index"
-            :align-self="i.self"
-            :cols="i.col"
-          >
-            <v-list-item>
-              <v-list-item-content class="text-h6">
-                <div :class="[{ center: i.center }]">
-                  <v-icon style="font-size: 60px">mdi-medal</v-icon>
-                  {{ i.text }}
-                </div></v-list-item-content
+
+    <v-banner
+      single-line
+      elevation="0"
+      class="page-title text-center page-h6 w-100"
+      color="grey darken-3"
+    >
+      <div>Наши преимущества</div></v-banner
+    >
+    <v-container>
+      <v-row no-gutters justify="space-between">
+        <v-col
+          v-for="(i, index) in card_list"
+          :key="index"
+          md="5"
+          align-self="start"
+        >
+          <v-card color="#616161" dark elevation="0">
+            <v-list-item three-line>
+              <v-list-item-avatar tile size="90">
+                <v-icon style="font-size: 90px"
+                  >mdi-medal</v-icon
+                ></v-list-item-avatar
               >
+              <v-list-item-content class="text-h6">
+                <div :class="{ 'justify-center': i.center }">
+                  {{ i.title }}
+                </div>
+                <v-list-item-subtitle>{{ i.subtitle }}</v-list-item-subtitle>
+              </v-list-item-content>
             </v-list-item>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-card>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <v-banner
+      single-line
+      elevation="0"
+      class="page-title text-center page-h6 w-100"
+      color="grey darken-3"
+    >
+      <div>Личная охрана</div></v-banner
+    >
+
+    <v-container>
+      <v-row>
+        <v-col>
+          <v-card dark max-width="512">
+            <v-img :src="require(`~/assets/img/${security}.jpg`)"></v-img>
+          </v-card>
+        </v-col>
+        <v-col>
+          <v-card dark color="#616161" elevation="0">
+            <v-card-title>dasdadadada</v-card-title>
+            <v-card-text
+              >ОО КГБ обеспечит надежную личную охрануОО КГБ обеспечит надежную
+              личную охрануОО КГБ обеспечит надежную личную охрануОО КГБ
+              обеспечит надежную личную охрануОО КГБ обеспечит надежную личную
+              охрануОО КГБ обеспечит надежную личную охрануОО КГБ обеспечит
+              надежную личную охрануОО КГБ обеспечит надежную личную охрануОО
+              КГБ обеспечит надежную личную охрануОО КГБ обеспечит надежную
+              личную охрануОО КГБ обеспечит надежную личную охрануОО КГБ
+              обеспечит надежную личную охрануОО КГБ обеспечит надежную личную
+              охрануОО КГБ обеспечит надежную личную охрану</v-card-text
+            >
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <v-banner
+      single-line
+      elevation="0"
+      class="page-title text-center page-h6 w-100 mb-4"
+      color="grey darken-3"
+    >
+      <div>Сопровождение груза</div></v-banner
+    >
   </div>
 </template>
 
@@ -77,34 +132,32 @@ export default {
   data() {
     return {
       items: ['page_1', 'page_2', 'page_3'],
+      security: 'security',
       card_list: [
         {
-          text: 'Опыт и профессионализм ',
-          self: 'center',
-          col: '8',
+          title: 'Опыт и профессионализм ',
+          subtitle:
+            'В КГБ  сотрудники охраны хорошо подготовлены психологически и физически и готовы продемонстрировать свои навыки в деле',
         },
         {
-          text: 'Перевозка лекарственных и психотропных веществ',
-          self: 'center',
-          col: '4',
-          end: true,
+          title: 'Перевозка лекарственных и психотропных веществ',
+          subtitle:
+            'Охранная Организация КГБ имеет лицензию на перевозку лекарственных средст и психотропных веществ, также у нас есть специализированный фармацевт',
+        },
+
+        {
+          title: 'Индивидуальный подход',
+          subtitle: 'Система лояльности для постоянных клиентов',
         },
         {
-          text: 'Качественное и исправное оборудование в том числе машины для выполнения охранных услуг ',
-          self: 'center',
-          col: '12',
-          center: true,
+          title: 'Усовершенствованная логистика',
+          subtitle: 'Наша команда КГБ работает по всей россии ',
         },
         {
-          text: 'Индивидуальный подход',
-          self: 'center',
-          col: '8',
-        },
-        {
-          text: 'Усовершенствованная логистика',
-          self: 'center',
-          col: '4',
-          end: true,
+          title:
+            'Качественное и исправное оборудование в том числе машины для выполнения охранных услуг ',
+          subtitle:
+            'Команда КГБ может установить систему «умный дом» для охраны квартир дач и других объектов',
         },
       ],
     }
@@ -130,6 +183,11 @@ export default {
 .center {
   display: flex;
   align-items: center;
-  justify-content: center;
+}
+.block-center {
+  margin: 0 auto !important;
+}
+.list-title {
+  text-overflow: none !important;
 }
 </style>
