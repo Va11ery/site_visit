@@ -16,6 +16,24 @@
       <v-tab to="/about">Контакты</v-tab>
       <v-tab to="/about">Вакансии</v-tab>
     </v-tabs>
+
+    <v-list two-line dark elevation="0" class="color-card mx-auto">
+      <v-list-item>
+        <a href="tel: '8 (812) 224 24 96'" class="tel"
+          ><v-icon>mdi-cellphone</v-icon>
+        </a>
+        <v-list-item-content>
+          <v-list-item-title>
+            <a
+              class="v-list-item"
+              style="color: white"
+              href="tel: '8 (812) 224 24 96'"
+              >8 (812) 224 24 96
+            </a>
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
   </v-app-bar>
 </template>
 
@@ -32,5 +50,11 @@ export default {
 }
 .v-toolbar__title {
   min-width: 83px;
+}
+.number-list {
+  display: flex;
+}
+.tel {
+  color: transparent;
 }
 </style>
