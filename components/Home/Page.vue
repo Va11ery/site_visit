@@ -130,11 +130,7 @@
     <v-row no-gutters>
       <v-col cols="12" md="6">
         <v-card dark color="#616161" elevation="0" class="color-card">
-          <v-card-text
-            >
-            Тут будет текст
-            </v-card-text
-          >
+          <v-card-text> Тут будет текст </v-card-text>
         </v-card>
       </v-col>
       <v-col cols="12" md="6">
@@ -174,11 +170,7 @@
         </v-col>
         <v-col>
           <v-card dark color="#616161" elevation="0" class="color-card">
-            <v-card-text
-              >
-              Тут будет text
-              </v-card-text
-            >
+            <v-card-text> Тут будет text </v-card-text>
           </v-card>
         </v-col>
       </v-row>
@@ -194,7 +186,7 @@
     >
 
     <v-container>
-      <v-row >
+      <v-row>
         <v-col>
           <v-card dark color="#616161" elevation="0" class="color-card">
             <v-list-item>
@@ -229,24 +221,13 @@
     <div class="pb-5 pt-5">
       <carousel-3d :controls-visible="true" height="494.27" display="5">
         <slide v-for="(i, index) in lisence" :key="index" :index="index">
-          <v-img :src="require(`~/assets/img/lisenci/${i.img}`)"></v-img>
+          <v-img
+            :src="require(`~/assets/img/lisenci/${i.img}`)"
+            @click="modalItem(i)"
+          ></v-img>
         </slide>
       </carousel-3d>
-      <v-row justify="center">
-        <v-dialog v-model="dialog" max-width="650">
-          <v-card>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="green darken-1" text @click="dialog = false">
-                Disagree
-              </v-btn>
-              <v-btn color="green darken-1" text @click="dialog = false">
-                Agree
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-      </v-row>
+      <LisenceModal :item="modal" />
     </div>
 
     <v-banner
@@ -277,17 +258,41 @@
 
 <script>
 import { Carousel3d, Slide } from 'vue-carousel-3d'
+import LisenceModal from './LisenceModal.vue'
 export default {
   name: 'HomePage',
   components: {
     Carousel3d,
     Slide,
+    LisenceModal,
   },
   data() {
     return {
       items: ['page_1', 'page_2', 'page_3'],
       security: 'security',
-
+      modal: [],
+      lisence: [
+        {
+          img: '1.jpg',
+          modal: false,
+        },
+        {
+          img: '2.jpg',
+          modal: false,
+        },
+        {
+          img: '3.jpg',
+          modal: false,
+        },
+        {
+          img: '4.jpg',
+          modal: false,
+        },
+        {
+          img: '5.jpg',
+          modal: false,
+        },
+      ],
       card_list: [
         {
           title: 'Опыт и профессионализм ',
@@ -344,11 +349,6 @@ export default {
     }
   },
   computed: {
-    lisence: {
-      get() {
-        return this.$store.state.lisence
-      },
-    },
     dialog: {
       get() {
         return this.$store.state.dialog
@@ -356,6 +356,12 @@ export default {
       set(newValue) {
         this.$store.commit('setDialog', newValue)
       },
+    },
+  },
+  methods: {
+    modalItem(item) {
+      this.modal = item
+      setTimeout(() => (this.dialog = true), 200)
     },
   },
 }
