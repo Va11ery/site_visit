@@ -83,65 +83,69 @@
     <v-banner
       single-line
       elevation="21"
-      class="page-title text-center page-h6 w-100 mb-4"
+      class="page-title text-center page-h6 w-100"
       color="grey darken-3"
     >
       <div>Сопровождение груза</div></v-banner
     >
-
-    <v-container>
-      <v-row>
-        <v-col>
-          <v-card dark color="#616161" max-width="900" elevation="0">
-            <v-img
-              :src="require(`~/assets/img/page_55.jpg`)"
-              height="500px"
-            ></v-img>
-          </v-card>
-        </v-col>
-        <v-col>
-          <v-list
-            dark
-            color="#616161"
-            class="color-card"
-            elevation="0"
-            three-line
-          >
-            <v-subheader>
-              Охранная Организация КГБ предлает множество услуг, связанных с
-              сопровождением:
-            </v-subheader>
-            <v-list-item v-for="(i, index) in listing" :key="index">
-              <v-list-item-content>
-                <v-list-item-title>{{ i.text }}</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
-        </v-col>
-      </v-row>
-    </v-container>
+    <v-row no-gutters>
+      <v-col cols="12" md="6">
+        <v-card dark color="#616161" elevation="0" height="100%">
+          <v-img
+            class="car-img"
+            :src="require(`~/assets/img/page_55.jpg`)"
+            height="100%"
+          ></v-img>
+        </v-card>
+      </v-col>
+      <v-col md="6">
+        <v-list
+          dark
+          color="#616161"
+          class="color-card"
+          elevation="0"
+          three-line
+        >
+          <v-subheader>
+            Охранная Организация КГБ предлает множество услуг, связанных с
+            сопровождением:
+          </v-subheader>
+          <v-list-item v-for="(i, index) in listing" :key="index">
+            <v-list-item-content>
+              <v-list-item-title>{{ i.text }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-col>
+    </v-row>
 
     <v-banner
       single-line
       elevation="21"
-      class="page-title text-center page-h6 w-100 mb-4"
+      class="page-title text-center page-h6 w-100"
       color="grey darken-3"
     >
       <div>Охрана объекта</div></v-banner
     >
-
-    <v-container>
-      <v-row>
-        <v-col>
-          <v-card> card </v-card>
-        </v-col>
-        <v-col>
-          <v-card dark color="#616161" max-width="712" elevation="0">
-            <v-img :src="require(`~/assets/img/amg_cop.jpg`)"></v-img>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
+    <v-row no-gutters>
+      <v-col cols="12" md="6">
+        <v-card dark color="#616161" elevation="0" class="color-card">
+          <v-card-text
+            >
+            Тут будет текст
+            </v-card-text
+          >
+        </v-card>
+      </v-col>
+      <v-col cols="12" md="6">
+        <v-card dark color="#616161" elevation="0" height="100%">
+          <v-img
+            :src="require(`~/assets/img/amg_cop.jpg`)"
+            height="100%"
+          ></v-img>
+        </v-card>
+      </v-col>
+    </v-row>
 
     <v-banner
       single-line
@@ -153,32 +157,27 @@
     >
 
     <v-container>
-      <v-row>
-        <v-col>
+      <v-row no-gutters>
+        <v-col cols="12" md="6">
           <v-card
             dark
             color="#616161"
-            max-width="712"
             elevation="0"
-            height="400"
             class="card-page color-card"
           >
-            <v-img :src="require(`~/assets/img/${security}.png`)"></v-img>
+            <v-img
+              class="security-card-img"
+              :src="require(`~/assets/img/${security}.png`)"
+              height="500"
+            ></v-img>
           </v-card>
         </v-col>
         <v-col>
           <v-card dark color="#616161" elevation="0" class="color-card">
-            <v-card-title>dasdadadada</v-card-title>
             <v-card-text
-              >ОО КГБ обеспечит надежную личную охрануОО КГБ обеспечит надежную
-              личную охрануОО КГБ обеспечит надежную личную охрануОО КГБ
-              обеспечит надежную личную охрануОО КГБ обеспечит надежную личную
-              охрануОО КГБ обеспечит надежную личную охрануОО КГБ обеспечит
-              надежную личную охрануОО КГБ обеспечит надежную личную охрануОО
-              КГБ обеспечит надежную личную охрануОО КГБ обеспечит надежную
-              личную охрануОО КГБ обеспечит надежную личную охрануОО КГБ
-              обеспечит надежную личную охрануОО КГБ обеспечит надежную личную
-              охрануОО КГБ обеспечит надежную личную охрану</v-card-text
+              >
+              Тут будет text
+              </v-card-text
             >
           </v-card>
         </v-col>
@@ -195,7 +194,7 @@
     >
 
     <v-container>
-      <v-row>
+      <v-row >
         <v-col>
           <v-card dark color="#616161" elevation="0" class="color-card">
             <v-list-item>
@@ -227,24 +226,27 @@
       <div>Лицензии</div></v-banner
     >
 
-    <div class="pt-5">
-      <carousel-3d :controlsVisible="true" height="494.27" display="5">
-        <slide :index="0"
-          ><v-img :src="require(`~/assets/img/lisenci/4.jpg`)"></v-img
-        ></slide>
-        <slide :index="1"
-          ><v-img :src="require(`~/assets/img/lisenci/5.jpg`)"></v-img
-        ></slide>
-        <slide :index="2"
-          ><v-img :src="require(`~/assets/img/lisenci/1.jpg`)"></v-img
-        ></slide>
-        <slide :index="3"
-          ><v-img :src="require(`~/assets/img/lisenci/2.jpg`)"></v-img
-        ></slide>
-        <slide :index="4"
-          ><v-img :src="require(`~/assets/img/lisenci/3.jpg`)"></v-img
-        ></slide>
+    <div class="pb-5 pt-5">
+      <carousel-3d :controls-visible="true" height="494.27" display="5">
+        <slide v-for="(i, index) in lisence" :key="index" :index="index">
+          <v-img :src="require(`~/assets/img/lisenci/${i.img}`)"></v-img>
+        </slide>
       </carousel-3d>
+      <v-row justify="center">
+        <v-dialog v-model="dialog" max-width="650">
+          <v-card>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="green darken-1" text @click="dialog = false">
+                Disagree
+              </v-btn>
+              <v-btn color="green darken-1" text @click="dialog = false">
+                Agree
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-row>
     </div>
 
     <v-banner
@@ -277,10 +279,15 @@
 import { Carousel3d, Slide } from 'vue-carousel-3d'
 export default {
   name: 'HomePage',
+  components: {
+    Carousel3d,
+    Slide,
+  },
   data() {
     return {
       items: ['page_1', 'page_2', 'page_3'],
       security: 'security',
+
       card_list: [
         {
           title: 'Опыт и профессионализм ',
@@ -336,9 +343,20 @@ export default {
       ],
     }
   },
-  components: {
-    Carousel3d,
-    Slide,
+  computed: {
+    lisence: {
+      get() {
+        return this.$store.state.lisence
+      },
+    },
+    dialog: {
+      get() {
+        return this.$store.state.dialog
+      },
+      set(newValue) {
+        this.$store.commit('setDialog', newValue)
+      },
+    },
   },
 }
 </script>
@@ -367,5 +385,10 @@ export default {
 }
 .list-title {
   text-overflow: none !important;
+}
+@media (max-width: 1263.5px) {
+  .security-card-img {
+    height: auto !important;
+  }
 }
 </style>

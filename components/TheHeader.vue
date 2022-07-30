@@ -1,10 +1,10 @@
 <template>
-  <v-app-bar app height="110" dark color="grey darken-3" elevation="16">
+  <v-app-bar app height="70" dark color="grey darken-3" elevation="16">
     <v-btn class="" fab>
       <v-img
         :src="require('~/assets/img/logo.png')"
-        max-height="90"
-        max-width="90"
+        max-height="65"
+        max-width="65"
       ></v-img>
     </v-btn>
     <v-toolbar-title class="ml-5">ООО КГБ</v-toolbar-title>
@@ -45,8 +45,8 @@ export default {
 
 <style lang="scss" scoped>
 .v-btn--fab.v-size--default {
-  height: 90px;
-  width: 90px;
+  height: 65px;
+  width: 65px;
 }
 .v-toolbar__title {
   min-width: 83px;
