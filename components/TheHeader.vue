@@ -2,19 +2,21 @@
   <v-app-bar app height="70" dark color="grey darken-3" elevation="16">
     <v-btn class="" fab>
       <v-img
+        id="logo"
         :src="require('~/assets/img/logo.png')"
         max-height="65"
         max-width="65"
+        @click="$vuetify.goTo('#carousel', options)"
       ></v-img>
     </v-btn>
     <v-toolbar-title class="ml-5">ООО КГБ</v-toolbar-title>
 
     <v-tabs centered exact-active-class>
-      <v-tab to="/">Главная</v-tab>
-      <v-tab to="/general">Услуги</v-tab>
-      <v-tab to="/about">Лицензия</v-tab>
-      <v-tab to="/about">Контакты</v-tab>
-      <v-tab to="/about">Вакансии</v-tab>
+      <v-tab @click="$vuetify.goTo('#carousel', options)">Главная</v-tab>
+      <v-tab @click="$vuetify.goTo('#cargo_support', options)">Услуги</v-tab>
+      <v-tab @click="$vuetify.goTo('#licenses', options)">Лицензия</v-tab>
+      <v-tab @click="$vuetify.goTo('#contacts', options)">Контакты</v-tab>
+      <v-tab @click="$vuetify.goTo('#job_openings', options)">Вакансии</v-tab>
     </v-tabs>
 
     <v-list two-line dark elevation="0" class="color-card mx-auto">
@@ -38,8 +40,27 @@
 </template>
 
 <script>
+import * as easings from 'vuetify/lib/services/goto/easing-patterns'
 export default {
   name: 'TheHeader',
+  data() {
+    return {
+      type: 'selector',
+      duration: 783,
+      offset: 0,
+      easing: 'easeOutQuad',
+      easings: Object.keys(easings),
+    }
+  },
+  computed: {
+    options() {
+      return {
+        duration: this.duration,
+        offset: this.offset,
+        easing: this.easing,
+      }
+    },
+  },
 }
 </script>
 

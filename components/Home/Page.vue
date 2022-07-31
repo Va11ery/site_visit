@@ -1,6 +1,11 @@
 <template>
   <div>
-    <v-carousel height="800" show-arrows-on-hover hide-delimiter-background>
+    <v-carousel
+      id="carousel"
+      height="800"
+      show-arrows-on-hover
+      hide-delimiter-background
+    >
       <v-carousel-item
         v-for="(item, i) in items"
         :key="i"
@@ -81,6 +86,7 @@
     </v-container>
 
     <v-banner
+      id="cargo_support"
       single-line
       elevation="21"
       class="page-title text-center page-h6 w-100"
@@ -177,6 +183,7 @@
     </v-container>
 
     <v-banner
+      id="job_openings"
       single-line
       elevation="21"
       class="page-title text-center page-h6 w-100"
@@ -196,20 +203,36 @@
             </v-list-item>
             <v-list-item>
               <v-list-item-content class="justify-center">
-                8 (812) 224 24 96
+                8 (931) 599 34 37
               </v-list-item-content>
             </v-list-item>
             <v-list-item>
               <v-list-item-content class="justify-center">
-                Иванов Иван Иванович
+                Игорь Леонтьев
               </v-list-item-content>
             </v-list-item>
+            <v-list-item class="mb-4">
+              <v-list-item-content class="justify-center">
+                otdel-kadrow.kgb@yandex.ru
+              </v-list-item-content>
+            </v-list-item>
+            <v-row align="center" justify="center" class="mb-4">
+              <v-tooltip right color="red darken-2">
+                <template #activator="{ on, attrs }">
+                  <v-btn v-bind="attrs" color="grey darken-3" v-on="on">
+                    Подробнее
+                  </v-btn>
+                </template>
+                <span>hh.ru</span>
+              </v-tooltip>
+            </v-row>
           </v-card>
         </v-col>
       </v-row>
     </v-container>
 
     <v-banner
+      id="licenses"
       single-line
       elevation="21"
       class="page-title text-center page-h6 w-100"
@@ -220,17 +243,27 @@
 
     <div class="pb-5 pt-5">
       <carousel-3d :controls-visible="true" height="494.27" display="5">
-        <slide v-for="(i, index) in lisence" :key="index" :index="index">
-          <v-img
-            :src="require(`~/assets/img/lisenci/${i.img}`)"
-            @click="modalItem(i)"
-          ></v-img>
+        <slide v-for="(slide, i) in lisence" :key="i" :index="i">
+          <template slot-scope="{ index, isCurrent, leftIndex, rightIndex }">
+            <v-img
+              :data-index="index"
+              :class="{
+                current: isCurrent,
+                onLeft: leftIndex >= 0,
+                onRight: rightIndex >= 0,
+              }"
+              :src="require(`~/assets/img/lisenci/${slide.img}`)"
+              @click="modalItem(slide)"
+            >
+            </v-img>
+          </template>
         </slide>
       </carousel-3d>
       <LisenceModal :item="modal" />
     </div>
 
     <v-banner
+      id="contacts"
       single-line
       elevation="21"
       class="page-title text-center page-h6 w-100"
@@ -239,19 +272,27 @@
       <div>Наши социальные сети</div></v-banner
     >
     <v-container>
-      <v-row>
-        <v-col>
-          <v-card
-            dark
-            color="#616161"
-            elevation="0"
-            class="color-card"
-            height="200"
-          >
-            <v-card-title class="justify-center"> В проекте .... </v-card-title>
-          </v-card>
-        </v-col>
-      </v-row>
+      <v-card
+        dark
+        color="#616161"
+        elevation="0"
+        class="color-card mx-auto"
+        max-width="300"
+        tile
+      >
+        <v-list disabled color="#616161"  elevation="0" class="color-card">
+          <v-list-item-group>
+            <v-list-item v-for="(item, i) in contacts" :key="i">
+              <v-list-item-icon>
+                <v-icon v-text="item.icon"></v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title v-text="item.text"></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-item-group>
+        </v-list>
+      </v-card>
     </v-container>
   </div>
 </template>
@@ -268,6 +309,13 @@ export default {
   },
   data() {
     return {
+      contacts: [
+        { text: '8 (812) 224 24 96', icon: 'mdi-cellphone' },
+        { text: '@mail.ru', icon: 'mdi-at' },
+        { text: 'Вконтакте', icon: 'mdi-account' },
+        { text: 'Instagram', icon: 'mdi-instagram' },
+        { text: 'hh.ru', icon: 'mdi-text-box' },
+      ],
       items: ['page_1', 'page_2', 'page_3'],
       security: 'security',
       modal: [],
@@ -361,7 +409,7 @@ export default {
   methods: {
     modalItem(item) {
       this.modal = item
-      setTimeout(() => (this.dialog = true), 200)
+      this.dialog = true
     },
   },
 }
