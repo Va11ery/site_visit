@@ -9,7 +9,7 @@
         @click="$vuetify.goTo('#carousel', options)"
       ></v-img>
     </v-btn>
-    <v-toolbar-title class="ml-5">ООО КГБ</v-toolbar-title>
+    <v-toolbar-title class="ml-5">ОО КГБ</v-toolbar-title>
 
     <v-tabs centered exact-active-class>
       <v-tab @click="$vuetify.goTo('#carousel', options)">Главная</v-tab>
