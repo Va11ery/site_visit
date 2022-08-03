@@ -208,7 +208,7 @@
             </v-list-item>
             <v-list-item>
               <v-list-item-content class="justify-center">
-                Игорь Леонтьев Васильевич
+                Игорь Васильевич Леонтьев
               </v-list-item-content>
             </v-list-item>
             <v-list-item class="mb-4">
@@ -280,7 +280,7 @@
         tile
       >
         <v-list flat color="#616161" elevation="0" class="color-card">
-          <v-list-item v-for="(item, i) in contacts" :id="`copy-${i}`" :key="i">
+          <v-list-item v-for="(item, i) in contacts" :id="`copy-${i}`" :key="i" @click="linkVK(i)">
             <v-list-item-icon>
               <v-icon v-text="item.icon"></v-icon>
             </v-list-item-icon>
@@ -308,8 +308,11 @@ export default {
     return {
       contacts: [
         { text: '8 (812) 224 24 96', icon: 'mdi-cellphone' },
-        { text: '@mail.ru', icon: 'mdi-at' },
-        { text: 'ВКонтакте', icon: 'mdi-account' },
+        { text: 'op.kgb@mail.ru', icon: 'mdi-at' },
+        {
+          text: 'ВКонтакте',
+          icon: 'mdi-account',
+        },
         { text: 'Instagram', icon: 'mdi-instagram' },
         { text: 'hh.ru', icon: 'mdi-text-box' },
       ],
@@ -408,6 +411,11 @@ export default {
       this.modal = item
       this.dialog = true
     },
+    linkVK(i) {
+      if(i === 2) {
+        window.open('https://vk.com/public214878440','_self')
+      }
+    }
   },
 }
 </script>
