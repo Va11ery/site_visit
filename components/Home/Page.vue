@@ -208,7 +208,7 @@
             </v-list-item>
             <v-list-item>
               <v-list-item-content class="justify-center">
-                Игорь Леонтьев
+                Игорь Леонтьев Васильевич
               </v-list-item-content>
             </v-list-item>
             <v-list-item class="mb-4">
@@ -245,7 +245,7 @@
       <carousel-3d :controls-visible="true" height="494.27" display="5">
         <slide v-for="(slide, i) in lisence" :key="i" :index="i">
           <template slot-scope="{ index, isCurrent, leftIndex, rightIndex }">
-            <v-img
+            <img
               :data-index="index"
               :class="{
                 current: isCurrent,
@@ -254,8 +254,7 @@
               }"
               :src="require(`~/assets/img/lisenci/${slide.img}`)"
               @click="modalItem(slide)"
-            >
-            </v-img>
+            />
           </template>
         </slide>
       </carousel-3d>
@@ -280,17 +279,15 @@
         max-width="300"
         tile
       >
-        <v-list disabled color="#616161"  elevation="0" class="color-card">
-          <v-list-item-group>
-            <v-list-item v-for="(item, i) in contacts" :key="i">
-              <v-list-item-icon>
-                <v-icon v-text="item.icon"></v-icon>
-              </v-list-item-icon>
-              <v-list-item-content>
-                <v-list-item-title v-text="item.text"></v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list-item-group>
+        <v-list flat color="#616161" elevation="0" class="color-card">
+          <v-list-item v-for="(item, i) in contacts" :id="`copy-${i}`" :key="i">
+            <v-list-item-icon>
+              <v-icon v-text="item.icon"></v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title v-text="item.text"></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
         </v-list>
       </v-card>
     </v-container>
@@ -312,7 +309,7 @@ export default {
       contacts: [
         { text: '8 (812) 224 24 96', icon: 'mdi-cellphone' },
         { text: '@mail.ru', icon: 'mdi-at' },
-        { text: 'Вконтакте', icon: 'mdi-account' },
+        { text: 'ВКонтакте', icon: 'mdi-account' },
         { text: 'Instagram', icon: 'mdi-instagram' },
         { text: 'hh.ru', icon: 'mdi-text-box' },
       ],
