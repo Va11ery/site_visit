@@ -136,10 +136,10 @@
     <v-row no-gutters>
       <v-col cols="12" md="6">
         <v-card dark color="#616161" elevation="0" class="color-card">
-          <v-card-text> Тут будет текст </v-card-text>
+          <v-card-text>текст  Охрана объекта</v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="6" class="order_1">
         <v-card dark color="#616161" elevation="0" height="100%">
           <v-img
             :src="require(`~/assets/img/amg_cop.jpg`)"
@@ -158,35 +158,30 @@
       <div>Личная охрана</div></v-banner
     >
 
-    <v-container>
-      <v-row no-gutters>
-        <v-col cols="12" md="6">
-          <v-card
-            dark
-            color="#616161"
-            elevation="0"
-            class="card-page color-card"
-          >
-            <v-img
-              class="security-card-img"
-              :src="require(`~/assets/img/${security}.png`)"
-              height="500"
-            ></v-img>
-          </v-card>
-        </v-col>
-        <v-col>
-          <v-card dark color="#616161" elevation="0" class="color-card">
-            <v-card-text> Тут будет text </v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
+    <v-row no-gutters>
+      <v-col cols="12" md="6">
+        <v-card dark class="security">
+          <v-img
+            class="security-card-img"
+            :src="require(`~/assets/img/security.png`)"
+            height="500"
+          ></v-img>
+        </v-card>
+      </v-col>
+      <v-col>
+        <v-card dark color="#616161" elevation="0" class="color-card">
+          <v-card-text>
+            текст Личная охрана
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
 
     <v-banner
       id="job_openings"
       single-line
       elevation="21"
-      class="page-title text-center page-h6 w-100"
+      class="page-title text-center page-h6 w-100 mb-4"
       color="grey darken-3"
     >
       <div>Вакансии</div></v-banner
@@ -197,35 +192,35 @@
         <v-col>
           <v-card dark color="#616161" elevation="0" class="color-card">
             <v-list-item>
-              <v-list-item-content class="justify-center">
+              <v-list-item-content class="justify-center _search">
                 Наша команда ищет опытных охранников
               </v-list-item-content>
             </v-list-item>
             <v-list-item>
-              <v-list-item-content class="justify-center">
+              <v-list-item-content class="justify-center _search">
                 8 (931) 599 34 37
               </v-list-item-content>
             </v-list-item>
             <v-list-item>
-              <v-list-item-content class="justify-center">
+              <v-list-item-content class="justify-center _search">
                 Игорь Васильевич Леонтьев
               </v-list-item-content>
             </v-list-item>
             <v-list-item class="mb-4">
-              <v-list-item-content class="justify-center">
+              <v-list-item-content class="justify-center _search">
                 otdel-kadrow.kgb@yandex.ru
               </v-list-item-content>
             </v-list-item>
-            <v-row align="center" justify="center" class="mb-4">
-              <v-tooltip right color="red darken-2">
-                <template #activator="{ on, attrs }">
-                  <v-btn v-bind="attrs" color="grey darken-3" v-on="on">
-                    Подробнее
-                  </v-btn>
-                </template>
-                <span>hh.ru</span>
-              </v-tooltip>
-            </v-row>
+            <v-list-item class="mb-4">
+              <v-list-item-content class="justify-center _search">
+                hh.ru
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item class="pb-4 justify-center">
+              <v-list-item-content class="justify-center" style="flex: none">
+                <v-btn color="grey darken-3"> Подробнее </v-btn>
+              </v-list-item-content>
+            </v-list-item>
           </v-card>
         </v-col>
       </v-row>
@@ -280,7 +275,12 @@
         tile
       >
         <v-list flat color="#616161" elevation="0" class="color-card">
-          <v-list-item v-for="(item, i) in contacts" :id="`copy-${i}`" :key="i" @click="linkVK(i)">
+          <v-list-item
+            v-for="(item, i) in contacts"
+            :id="`copy-${i}`"
+            :key="i"
+            @click="linkVK(i)"
+          >
             <v-list-item-icon>
               <v-icon v-text="item.icon"></v-icon>
             </v-list-item-icon>
@@ -308,7 +308,7 @@ export default {
     return {
       contacts: [
         { text: '8 (812) 224 24 96', icon: 'mdi-cellphone' },
-        { text: 'op.kgb@mail.ru', icon: 'mdi-at' },
+        { text: 'op.kgb@mail.ru', icon: 'mdi-email' },
         {
           text: 'ВКонтакте',
           icon: 'mdi-account',
@@ -412,21 +412,24 @@ export default {
       this.dialog = true
     },
     linkVK(i) {
-      if(i === 2) {
-        window.open('https://vk.com/public214878440','_self')
+      if (i === 2) {
+        window.open('https://vk.com/public214878440', '_self')
       }
-    }
+      if (i === 1) {
+        window.open('mailto:op.kgb@mail.ru', '_self')
+      }
+      if (i === 4) {
+        window.open(
+          'https://spb.hh.ru/vacancy/68113018?hhtmFrom=employer_vacancies',
+          '_self'
+        )
+      }
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.page-title {
-  color: #fff;
-  div {
-    padding: 10px;
-  }
-}
 .list-content {
   text-align: justify;
   text-shadow: 2px 2px 2px black;
@@ -434,6 +437,12 @@ export default {
 .page-h6 {
   font-size: 30px !important;
   font-weight: 500 !important;
+}
+.page-title {
+  color: #fff;
+  div {
+    padding: 10px;
+  }
 }
 .center {
   display: flex;
@@ -448,6 +457,15 @@ export default {
 @media (max-width: 1263.5px) {
   .security-card-img {
     height: auto !important;
+  }
+}
+._search {
+  font-size: 24px !important  ;
+  font-weight: 500;
+}
+@media (max-width: 959.5px) {
+  .order_1 {
+    order: -1;
   }
 }
 </style>
