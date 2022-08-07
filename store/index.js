@@ -5,11 +5,14 @@ export default () =>
   new Store({
     state: {
       dialog: false,
-      
+      drawer: false,
     },
     mutations: {
       setDialog(state, value) {
         state.dialog = value
+      },
+      setDrawer(state, value) {
+        state.drawer = value
       },
     },
     actions: {},
