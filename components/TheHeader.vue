@@ -9,7 +9,9 @@
         @click="scrollMain()"
       ></v-img>
     </v-btn>
-    <v-toolbar-title class="ml-5">ОО КГБ</v-toolbar-title>
+    <v-toolbar-title class="ml-5">Охранная организация КГБ</v-toolbar-title>
+    <v-spacer></v-spacer>
+
     <v-tabs centered exact-active-class>
       <v-tab @click="scrollMain()">Главная</v-tab>
       <v-tab to="/services">Услуги</v-tab>
@@ -92,9 +94,6 @@ export default {
   height: 65px;
   width: 65px;
 }
-.v-toolbar__title {
-  min-width: 83px;
-}
 .number-list {
   display: flex;
 }
@@ -110,5 +109,8 @@ a {
 }
 .list-content {
   padding: 4px 0 !important;
+}
+.v-toolbar__title {
+  min-width: 260px;
 }
 </style>

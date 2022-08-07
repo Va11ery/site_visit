@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row no-gutters id="service" class="service">
+    <v-row id="service" no-gutters class="service">
       <v-col cols="12" md="6">
         <v-card dark color="#616161" elevation="0" class="color-card">
           <v-img
