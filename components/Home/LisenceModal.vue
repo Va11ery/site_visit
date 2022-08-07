@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center">
     <v-dialog v-model="dialog" width="570">
-      <v-card max-width="570" dark>
+      <v-card max-width="570">
         <v-img
           :src="getImg ? require(`~/assets/img/lisenci/${getImg}`) : ''"
         ></v-img>

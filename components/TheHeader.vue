@@ -9,18 +9,24 @@
         @click="scrollMain()"
       ></v-img>
     </v-btn>
-    <v-toolbar-title class="ml-5">Охранная организация КГБ</v-toolbar-title>
-    <v-spacer></v-spacer>
+    <v-toolbar-title class="ml-5" style="text-shadow: 2px 2px 2px black"
+      >Охранная организация КГБ</v-toolbar-title
+    >
+    <v-spacer class="adaptive"></v-spacer>
+    <v-app-bar-nav-icon
+      class="adaptive"
+      @click="drawer = !drawer"
+    ></v-app-bar-nav-icon>
 
-    <v-tabs centered exact-active-class>
+    <v-tabs centered exact-active-class class="header-content">
       <v-tab @click="scrollMain()">Главная</v-tab>
       <v-tab to="/services">Услуги</v-tab>
-      <v-tab @click="scrollPage('#licenses')">Лицензия</v-tab>
-      <v-tab @click="scrollPage('#contacts')">Контакты</v-tab>
-      <v-tab @click="scrollPage('#job_openings')">Вакансии</v-tab>
+      <v-tab @click="scrollPage('#licenses',3)">Лицензии</v-tab>
+      <v-tab @click="scrollPage('#contacts',4)">Контакты</v-tab>
+      <v-tab @click="scrollPage('#job_openings',5)">Вакансии</v-tab>
     </v-tabs>
 
-    <v-list dark elevation="0" class="color-card mx-auto">
+    <v-list dark elevation="0" class="color-card mx-auto header-content">
       <v-list-item class="tel">
         <a href="tel: '8 (812) 224 24 96'" class="tel mr-2"
           ><v-icon>mdi-cellphone</v-icon>
@@ -70,19 +76,34 @@ export default {
         easing: this.easing,
       }
     },
+    drawer: {
+      get() {
+        return this.$store.state.drawer
+      },
+      set(newValue) {
+        this.$store.commit('setDrawer', newValue)
+      },
+    },
   },
   methods: {
     scrollMain(i) {
       if (this.$route.name === 'index') {
         this.$vuetify.goTo('#carousel', this.options)
       } else {
-        window.scrollTo(0, 0)
         this.$router.push({ name: 'index' })
       }
     },
-    scrollPage(i) {
-      if (this.$route.name === 'index') {
+    scrollPage(i, index) {
+      if (this.$route.name === 'index' && index !== 0 && index !== 1) {
         this.$vuetify.goTo(i, this.options)
+        this.drawer = false
+      }
+      if (this.$route.name === 'services' && index !== 0 && index !== 1) {
+        this.$router.push({
+          name: 'index',
+          params: { scroll: true, selector: i },
+        })
+        setTimeout(() => this.$vuetify.goTo(i, this.options), 200)
       }
     },
   },
@@ -109,8 +130,20 @@ a {
 }
 .list-content {
   padding: 4px 0 !important;
+  text-shadow: 2px 2px 2px black;
 }
 .v-toolbar__title {
   min-width: 260px;
+}
+.adaptive {
+  display: none;
+}
+@media (max-width: 1092px) {
+  .header-content {
+    display: none;
+  }
+  .adaptive {
+    display: block;
+  }
 }
 </style>

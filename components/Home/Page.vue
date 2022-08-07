@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page">
     <v-carousel
       id="carousel"
       height="800"
@@ -136,7 +136,19 @@
     <v-row no-gutters>
       <v-col cols="12" md="6">
         <v-card dark color="#616161" elevation="0" class="color-card">
-          <v-card-text>текст  Охрана объекта</v-card-text>
+          <v-card-text style="font-size: 24px; line-height: 2"
+            >Безопасность функционирования объекта, сохранности его
+            материального имущества, защиту жизни и здоровья его
+            персонала.Действия по обеспечению безопасности объекта
+            осуществляются обученными и подготовленными сотрудниками. В
+            специально созданных центрах их обучают владению оружием, навыкам
+            психоанализа, оказанию первой медицинской помощи.В обязанности
+            охранников входит непосредственное присутствие на объекте, контроль
+            территории, при необходимости досмотр людей на проходных пунктах
+            предприятий, офисных зданий, фирм. Их деятельность осуществляется
+            согласно Закону Российской Федерации от 11.03.1992 № 2487-1 «О
+            частной детективной и охранной деятельности в Российской Федерации».
+          </v-card-text>
         </v-card>
       </v-col>
       <v-col cols="12" md="6" class="order_1">
@@ -170,9 +182,13 @@
       </v-col>
       <v-col>
         <v-card dark color="#616161" elevation="0" class="color-card">
-          <v-card-text>
-            текст Личная охрана
-          </v-card-text>
+          <v-card-text style="font-size: 24px; line-height: 2"
+            >Личная охрана доступна в любое время, также все охранники вооружены
+            огнестрельным оружием. Обеспечение безопасности охраняемого лица,
+            независимо от того, какого рода опасность может ему угрожать –
+            целенаправленное покушение или форс-мажорные
+            обстоятельства.</v-card-text
+          >
         </v-card>
       </v-col>
     </v-row>
@@ -192,31 +208,31 @@
         <v-col>
           <v-card dark color="#616161" elevation="0" class="color-card">
             <v-list-item>
-              <v-list-item-content class="justify-center _search">
+              <v-list-item-content class="justify-center _search text-center">
                 Наша команда ищет опытных охранников
               </v-list-item-content>
             </v-list-item>
             <v-list-item>
-              <v-list-item-content class="justify-center _search">
+              <v-list-item-content class="justify-center _search text-center">
                 8 (931) 599 34 37
               </v-list-item-content>
             </v-list-item>
             <v-list-item>
-              <v-list-item-content class="justify-center _search">
+              <v-list-item-content class="justify-center _search text-center">
                 Игорь Васильевич Леонтьев
               </v-list-item-content>
             </v-list-item>
             <v-list-item class="mb-4">
-              <v-list-item-content class="justify-center _search">
+              <v-list-item-content class="justify-center _search text-center">
                 otdel-kadrow.kgb@yandex.ru
               </v-list-item-content>
             </v-list-item>
             <v-list-item class="mb-4">
-              <v-list-item-content class="justify-center _search">
+              <v-list-item-content class="justify-center _search text-center">
                 hh.ru
               </v-list-item-content>
             </v-list-item>
-            <v-list-item class="pb-4 justify-center">
+            <v-list-item class="pb-4 justify-center text-center">
               <v-list-item-content class="justify-center" style="flex: none">
                 <v-btn color="grey darken-3"> Подробнее </v-btn>
               </v-list-item-content>
@@ -369,7 +385,8 @@ export default {
         },
         {
           title: 'Золотой месяц',
-          subtitle: 'Наша команда дает месяц отсрочки на оплату охранных услуг (прописывается в договоре)',
+          subtitle:
+            'Наша команда дает месяц отсрочки на оплату охранных услуг (прописывается в договоре)',
         },
       ],
       listing: [
@@ -424,8 +441,11 @@ export default {
           '_self'
         )
       }
-      if(i === 3) {
-        window.open('https://www.instagram.com/invites/contact/?i=930rihqvqmmh&utm_content=p2bij7u', '_self')
+      if (i === 3) {
+        window.open(
+          'https://www.instagram.com/invites/contact/?i=930rihqvqmmh&utm_content=p2bij7u',
+          '_self'
+        )
       }
     },
   },
@@ -470,5 +490,12 @@ export default {
   .order_1 {
     order: -1;
   }
+}
+div {
+  text-shadow: 2px 2px 2px black;
+}
+
+button {
+  text-shadow: 2px 2px 2px black;
 }
 </style>

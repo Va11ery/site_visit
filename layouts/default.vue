@@ -1,11 +1,14 @@
 <template>
-  <v-app app>
-    <TheHeader />
-    <v-main>
-      <router-view></router-view>
-    </v-main>
-    <TheFooter />
-  </v-app>
+  <div>
+    <v-app app>
+      <Burger />
+      <TheHeader />
+      <v-main>
+        <Nuxt />
+      </v-main>
+      <TheFooter />
+    </v-app>
+  </div>
 </template>
 
 <script>
