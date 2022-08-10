@@ -103,6 +103,18 @@ export default {
         })
         setTimeout(() => this.$vuetify.goTo(i, this.options), 200)
       }
+      if (
+        this.$route.name === 'vacancy' &&
+        index !== 0 &&
+        index !== 1 &&
+        index !== 4
+      ) {
+        this.$router.push({
+          name: 'index',
+          params: { scroll: true, selector: i },
+        })
+        setTimeout(() => this.$vuetify.goTo(i, this.options), 200)
+      }
     },
   },
 }

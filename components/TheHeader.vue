@@ -1,16 +1,15 @@
 <template>
-  <v-app-bar app height="70" dark color="grey darken-3" elevation="16">
-    <v-btn class="" fab>
+  <v-app-bar app height="75" class="" dark color="grey darken-3" elevation="16">
+    <v-btn class="" fab @click.prevent="$router.push({ name: 'index' })">
       <v-img
         id="logo"
         :src="require('~/assets/img/logo.png')"
         max-height="65"
         max-width="65"
-        @click.prevent="scrollMain()"
       ></v-img>
     </v-btn>
     <v-toolbar-title class="ml-5" style="text-shadow: 2px 2px 2px black"
-      >Охранная организация КГБ</v-toolbar-title
+      >Охранная Организация КГБ</v-toolbar-title
     >
     <v-spacer class="adaptive"></v-spacer>
     <v-app-bar-nav-icon
@@ -105,6 +104,13 @@ export default {
         })
         setTimeout(() => this.$vuetify.goTo(i, this.options), 200)
       }
+      if (this.$route.name === 'vacancy' && index !== 0 && index !== 1) {
+        this.$router.push({
+          name: 'index',
+          params: { scroll: true, selector: i },
+        })
+        setTimeout(() => this.$vuetify.goTo(i, this.options), 200)
+      }
     },
   },
 }
@@ -144,6 +150,14 @@ a {
   }
   .adaptive {
     display: block;
+  }
+}
+@media (max-width: 400px) {
+  .v-toolbar__title {
+    min-width: 100px !important;
+    width: 120px !important;
+    white-space: pre-wrap;
+    font-size: 1.1rem;
   }
 }
 </style>
