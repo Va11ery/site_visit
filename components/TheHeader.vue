@@ -6,7 +6,7 @@
         :src="require('~/assets/img/logo.png')"
         max-height="65"
         max-width="65"
-        @click="scrollMain()"
+        @click.prevent="scrollMain()"
       ></v-img>
     </v-btn>
     <v-toolbar-title class="ml-5" style="text-shadow: 2px 2px 2px black"
@@ -21,9 +21,9 @@
     <v-tabs centered exact-active-class class="header-content">
       <v-tab @click="scrollMain()">Главная</v-tab>
       <v-tab to="/services">Услуги</v-tab>
-      <v-tab @click="scrollPage('#licenses',3)">Лицензии</v-tab>
-      <v-tab @click="scrollPage('#contacts',4)">Контакты</v-tab>
-      <v-tab @click="scrollPage('#job_openings',5)">Вакансии</v-tab>
+      <v-tab @click="scrollPage('#licenses', 3)">Лицензии</v-tab>
+      <v-tab @click="scrollPage('#contacts', 4)">Контакты</v-tab>
+      <v-tab to="/vacancy">Вакансии</v-tab>
     </v-tabs>
 
     <v-list dark elevation="0" class="color-card mx-auto header-content">

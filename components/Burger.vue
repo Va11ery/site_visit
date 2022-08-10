@@ -57,7 +57,7 @@ export default {
         {
           icon: 'mdi-chart-bubble',
           title: 'Вакансии',
-          scroll: '#job_openings',
+          to: '/vacancy',
         },
       ],
     }
@@ -82,11 +82,21 @@ export default {
   },
   methods: {
     scrollPage(i, index) {
-      if (this.$route.name === 'index' && index !== 0 && index !== 1) {
+      if (
+        this.$route.name === 'index' &&
+        index !== 0 &&
+        index !== 1 &&
+        index !== 4
+      ) {
         this.$vuetify.goTo(i, this.options)
         this.drawer = false
       }
-      if (this.$route.name === 'services' && index !== 0 && index !== 1) {
+      if (
+        this.$route.name === 'services' &&
+        index !== 0 &&
+        index !== 1 &&
+        index !== 4
+      ) {
         this.$router.push({
           name: 'index',
           params: { scroll: true, selector: i },
