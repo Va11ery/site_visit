@@ -1,6 +1,6 @@
 <template>
   <v-app-bar app height="75" class="" dark color="grey darken-3" elevation="16">
-    <v-btn class="" fab @click.prevent="$router.push({ name: 'index' })">
+    <v-btn class="" fab @click.prevent="scrollMain()">
       <v-img
         id="logo"
         :src="require('~/assets/img/logo.png')"
@@ -18,10 +18,10 @@
     ></v-app-bar-nav-icon>
 
     <v-tabs centered exact-active-class class="header-content">
-      <v-tab @click="scrollMain()">Главная</v-tab>
+      <v-tab @click.prevent="scrollMain()">Главная</v-tab>
       <v-tab to="/services">Услуги</v-tab>
-      <v-tab @click="scrollPage('#licenses', 3)">Лицензии</v-tab>
-      <v-tab @click="scrollPage('#contacts', 4)">Контакты</v-tab>
+      <v-tab @click.prevent="scrollPage('#licenses', 3)">Лицензии</v-tab>
+      <v-tab @click.prevent="scrollPage('#contacts', 4)">Контакты</v-tab>
       <v-tab to="/vacancy">Вакансии</v-tab>
     </v-tabs>
 
