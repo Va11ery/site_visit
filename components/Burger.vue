@@ -40,7 +40,7 @@ export default {
           to: '/',
         },
         {
-          icon: 'mdi-account-box',
+          icon: 'mdi-shield-car',
           title: 'Услуги',
           to: '/services',
         },
@@ -50,12 +50,12 @@ export default {
           scroll: '#licenses',
         },
         {
-          icon: 'mdi-card-account-details',
+          icon: 'mdi-account-box ',
           title: 'Контакты',
           scroll: '#contacts',
         },
         {
-          icon: 'mdi-shield-car',
+          icon: 'mdi-card-account-details',
           title: 'Вакансии',
           to: '/vacancy',
         },
