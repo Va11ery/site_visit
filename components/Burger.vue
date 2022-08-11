@@ -40,22 +40,22 @@ export default {
           to: '/',
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-account-box',
           title: 'Услуги',
           to: '/services',
         },
         {
-          icon: 'mdi-apps',
+          icon: 'mdi-file-document-multiple',
           title: 'Лицензии',
           scroll: '#licenses',
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-card-account-details',
           title: 'Контакты',
           scroll: '#contacts',
         },
         {
-          icon: 'mdi-chart-bubble',
+          icon: 'mdi-shield-car',
           title: 'Вакансии',
           to: '/vacancy',
         },
