@@ -7,17 +7,15 @@
       >
       <v-list-item v-for="(i, index) in responsibilities" :key="index">
         <v-list-item-content>
-          <v-list-item-title class="title">{{ i.title }}</v-list-item-title>
+          <v-list-item-title class="title wrap">{{ i.title }}</v-list-item-title>
           <v-list-item-subtitle
             v-for="(text, text_index) in i.list"
             :key="text_index"
-            class="subtitle"
-            >{{ text }}</v-list-item-subtitle
+            class="subtitle wrap"
+            >- {{ text }}</v-list-item-subtitle
           >
         </v-list-item-content>
       </v-list-item>
-
-   
     </v-list>
 
     <v-card color="#616161" dark elevation="0">
@@ -76,6 +74,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.wrap {
+  white-space: pre-wrap;
+}
 .title {
   font-size: 24px !important;
   text-shadow: 2px 2px 2px black;
