@@ -220,7 +220,7 @@
           <v-card dark color="#616161" elevation="0" class="color-card">
             <v-list-item>
               <v-list-item-content class="justify-center _search text-center">
-                Наша команда ищет опытных охранников
+                Наша команда ищет опытных сотрудников с лицензиями и без (поможем с лицензированием)
               </v-list-item-content>
             </v-list-item>
             <v-list-item>

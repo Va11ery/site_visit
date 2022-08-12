@@ -1,16 +1,17 @@
 <template>
   <div class="pt-5">
     <v-list two-line subheader dark color="#616161">
-      <v-subheader
+      <v-subheader class="title"
         >В связи с расширением ООО «ОО «КГБ» срочно ищем охранников 6 разряда на
         сопровождение грузов.</v-subheader
       >
       <v-list-item v-for="(i, index) in responsibilities" :key="index">
         <v-list-item-content>
-          <v-list-item-title>{{ i.title }}</v-list-item-title>
+          <v-list-item-title class="title">{{ i.title }}</v-list-item-title>
           <v-list-item-subtitle
             v-for="(text, text_index) in i.list"
             :key="text_index"
+            class="subtitle"
             >{{ text }}</v-list-item-subtitle
           >
         </v-list-item-content>
@@ -77,4 +78,13 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.title {
+  font-size: 24px !important;
+  text-shadow: 2px 2px 2px black;
+}
+.subtitle {
+  font-size: 18px;
+  text-shadow: 2px 2px 2px black;
+}
+</style>
