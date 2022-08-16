@@ -1,13 +1,19 @@
 <template>
   <div class="pt-5">
     <v-list two-line subheader dark color="#616161">
-      <v-subheader class="title"
-        >В связи с расширением ООО «ОО «КГБ» срочно ищем охранников 6 разряда на
-        сопровождение грузов.</v-subheader
+      <div
+        style="font-size: 24px; text-shadow: 2px 2px 2px black; padding: 0 16px"
       >
+        В связи с расширением ООО «ОО «КГБ» срочно ищем охранников 6 разряда на
+        сопровождение грузов.
+      </div>
       <v-list-item v-for="(i, index) in responsibilities" :key="index">
         <v-list-item-content>
-          <v-list-item-title class="title wrap">{{ i.title }}</v-list-item-title>
+          <v-list-item-title
+            class="wrap"
+            style="font-size: 24px; text-shadow: 2px 2px 2px black"
+            >{{ i.title }}</v-list-item-title
+          >
           <v-list-item-subtitle
             v-for="(text, text_index) in i.list"
             :key="text_index"
@@ -19,7 +25,9 @@
     </v-list>
 
     <v-card color="#616161" dark elevation="0">
-      <v-card-title>Ключевые навыки</v-card-title>
+      <v-card-title style="text-shadow: 2px 2px 2px black"
+        >Ключевые навыки</v-card-title
+      >
       <v-card-text>
         <v-chip>Материальная ответственность</v-chip>
 
@@ -64,7 +72,7 @@ export default {
             'Трудоустройство в день собеседования;',
             'Заработная плата без задержек, выплата 2 раза в месяц;',
             'Адекватное руководство;',
-            'Если остались вопросы, то звоните по телефону 8 (931) 599 34 37 (Игорь Васильевич Леонтьев) или напишите нам на почту отдела кадров: otdel-kadrow.kgb@yandex.ru, более детально все вопросы обсуждаются на собеседовании с руководителем.',
+            'Если остались вопросы, то звоните по телефону 8 (931) 599 34 37 (Отдел кадров) или напишите нам на почту отдела кадров: otdel-kadrow.kgb@yandex.ru, более детально все вопросы обсуждаются на собеседовании с руководителем.',
           ],
         },
       ],
@@ -76,10 +84,6 @@ export default {
 <style lang="scss" scoped>
 .wrap {
   white-space: pre-wrap;
-}
-.title {
-  font-size: 24px !important;
-  text-shadow: 2px 2px 2px black;
 }
 .subtitle {
   font-size: 18px;
