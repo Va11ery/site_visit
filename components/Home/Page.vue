@@ -24,8 +24,8 @@
       <v-list color="#616161" dark>
         <v-row>
           <v-col>
-            <v-card dark color="#616161" elevation="0" class="color-card">
-              <v-card-text class="list-content text-h6" style="color: white">
+            <v-card dark color="#616161" elevation="0" class="color-card" >
+              <v-card-text class="list-content text-h6 pa-2 pt-5 pb-5" style="color: white">
                 <span style="padding-left: 100px"></span> Карго Глобал
                 Безопасность - это команда опытных сотрудников, которая
                 обеспечит надежную охрану вашей жизни, а также возьмет на себя
@@ -38,7 +38,7 @@
           </v-col>
           <v-col>
             <v-card dark color="#616161" elevation="0" class="color-card">
-              <v-card-text class="list-content text-h6" style="color: white">
+              <v-card-text class="list-content text-h6 pa-2 pt-5 pb-5" style="color: white">
                 <span style="padding-left: 100px"></span>Сотрудники офиса
                 постоянно повышают свою квалификацию для стратегического
                 развития охранной организации. Наши охранники повышают свою
@@ -64,7 +64,7 @@
         <v-col
           v-for="(i, index) in card_list"
           :key="index"
-          md="5"
+          md="4"
           align-self="start"
         >
           <v-card color="#616161" dark elevation="0" class="color-card">
@@ -74,11 +74,13 @@
                   >mdi-medal</v-icon
                 ></v-list-item-avatar
               >
-              <v-list-item-content class="text-h6">
+              <v-list-item-content class="text-h6" style="text-align: center">
                 <div :class="{ 'justify-center': i.center }">
                   {{ i.title }}
                 </div>
-                <v-list-item-subtitle>{{ i.subtitle }}</v-list-item-subtitle>
+                <v-list-item-subtitle style="font-size: 16px">{{
+                  i.subtitle
+                }}</v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
           </v-card>
@@ -179,11 +181,11 @@
 
     <v-row no-gutters>
       <v-col cols="12" md="6">
-        <v-card dark class="security">
+        <v-card dark class="security" height="100%">
           <v-img
             class="security-card-img"
             :src="require(`~/assets/img/security.png`)"
-            height="500"
+            height="100%"
           ></v-img>
         </v-card>
       </v-col>
@@ -220,7 +222,13 @@
           <v-card dark color="#616161" elevation="0" class="color-card">
             <v-list-item>
               <v-list-item-content class="justify-center _search text-center">
-                Наша команда ищет опытных сотрудников с лицензиями и без (поможем с лицензированием)
+                Наша команда ищет опытных сотрудников с лицензиями и без
+                (поможем с лицензированием)
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-content class="justify-center _search text-center">
+                Отдел кадров:
               </v-list-item-content>
             </v-list-item>
             <v-list-item>
@@ -228,17 +236,12 @@
                 8 (931) 599 34 37
               </v-list-item-content>
             </v-list-item>
-            <v-list-item>
-              <v-list-item-content class="justify-center _search text-center">
-                Игорь Васильевич Леонтьев
-              </v-list-item-content>
-            </v-list-item>
             <v-list-item class="mb-4">
               <v-list-item-content class="justify-center _search text-center">
                 otdel-kadrow.kgb@yandex.ru
               </v-list-item-content>
             </v-list-item>
-            <v-list-item class="mb-4">
+            <v-list-item class="mb-4" @click="openhhru()">
               <v-list-item-content class="justify-center _search text-center">
                 hh.ru
               </v-list-item-content>
@@ -384,25 +387,26 @@ export default {
           subtitle:
             'Охранная Организация КГБ имеет лицензию на перевозку лекарственных средств и психотропных веществ, также у нас есть специализированный фармацевт',
         },
-
-        {
-          title: 'Индивидуальный подход',
-          subtitle: 'Система лояльности для постоянных клиентов',
-        },
-        {
-          title: 'Усовершенствованная логистика',
-          subtitle: 'Наша команда КГБ работает по всей России ',
-        },
         {
           title:
             'Качественное и исправное оборудование, в том числе машины, для выполнения охранных услуг ',
           subtitle:
             'Команда КГБ может установить систему «умный дом» для охраны квартир, дач и других объектов',
         },
+
         {
           title: 'Золотой месяц',
           subtitle:
             'Наша команда дает месяц отсрочки на оплату охранных услуг (прописывается в договоре)',
+        },
+
+        {
+          title: 'Усовершенствованная логистика',
+          subtitle: 'Наша команда КГБ работает по всей России ',
+        },
+        {
+          title: 'Индивидуальный подход',
+          subtitle: 'Система лояльности для постоянных клиентов',
         },
       ],
       listing: [
@@ -443,6 +447,12 @@ export default {
     modalItem(item) {
       this.modal = item
       this.dialog = true
+    },
+    openhhru() {
+      window.open(
+        'https://spb.hh.ru/vacancy/68113018?hhtmFrom=employer_vacancies',
+        '_self'
+      )
     },
     linkVK(i) {
       if (i === 2) {
