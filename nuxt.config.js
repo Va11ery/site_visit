@@ -4,23 +4,25 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
   target: 'static',
-  router: {
-    base: '/site_visit/',
-  },
+  router: {},
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - site-visit',
-    title: 'site-visit',
+    title: 'оокгб',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'ru',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Карго глобал безопасность, оокгб, охрана, охранная организация, частная охранная организация, кгб, ооо оокгб, личная охрана, охрана груза, охрана мероприятий, безопасное сопровождение, охранные услуги, охрана собственности, охрана имущества, охрана обьектов, охранники, безопасность, охрана дома, охрана дачи, встреча из аэропорта',
+      },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/logo.ico' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
