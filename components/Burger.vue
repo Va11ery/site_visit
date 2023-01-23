@@ -47,12 +47,12 @@ export default {
         {
           icon: 'mdi-file-document-multiple',
           title: 'Лицензии',
-          scroll: '#licenses',
+          scroll: 'licenses',
         },
         {
           icon: 'mdi-account-box ',
           title: 'Контакты',
-          scroll: '#contacts',
+          scroll: 'contacts',
         },
         {
           icon: 'mdi-card-account-details',
@@ -88,7 +88,6 @@ export default {
         index !== 1 &&
         index !== 4
       ) {
-        this.$vuetify.goTo(i, this.options)
         this.drawer = false
       }
       if (
@@ -99,9 +98,7 @@ export default {
       ) {
         this.$router.push({
           name: 'index',
-          params: { scroll: true, selector: i },
         })
-        setTimeout(() => this.$vuetify.goTo(i, this.options), 200)
       }
       if (
         this.$route.name === 'vacancy' &&
@@ -111,10 +108,12 @@ export default {
       ) {
         this.$router.push({
           name: 'index',
-          params: { scroll: true, selector: i },
         })
-        setTimeout(() => this.$vuetify.goTo(i, this.options), 200)
       }
+      setTimeout(() => {
+        const el = document.getElementById(i)
+        el.scrollIntoView()
+      }, 200)
     },
   },
 }

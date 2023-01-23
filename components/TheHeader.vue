@@ -20,8 +20,8 @@
     <v-tabs centered exact-active-class class="header-content">
       <v-tab @click.prevent="scrollMain()">Главная</v-tab>
       <v-tab to="/services">Услуги</v-tab>
-      <v-tab @click.prevent="scrollPage('#licenses', 3)">Лицензии</v-tab>
-      <v-tab @click.prevent="scrollPage('#contacts', 4)">Контакты</v-tab>
+      <v-tab @click.prevent="scrollPage('licenses', 3)">Лицензии</v-tab>
+      <v-tab @click.prevent="scrollPage('contacts', 4)">Контакты</v-tab>
       <v-tab to="/vacancy">Вакансии</v-tab>
     </v-tabs>
 
@@ -94,23 +94,23 @@ export default {
     },
     scrollPage(i, index) {
       if (this.$route.name === 'index' && index !== 0 && index !== 1) {
-        this.$vuetify.goTo(i, this.options)
         this.drawer = false
       }
       if (this.$route.name === 'services' && index !== 0 && index !== 1) {
         this.$router.push({
           name: 'index',
-          params: { scroll: true, selector: i },
         })
-        setTimeout(() => this.$vuetify.goTo(i, this.options), 200)
       }
       if (this.$route.name === 'vacancy' && index !== 0 && index !== 1) {
         this.$router.push({
           name: 'index',
-          params: { scroll: true, selector: i },
         })
-        setTimeout(() => this.$vuetify.goTo(i, this.options), 200)
       }
+
+      setTimeout(() => {
+        const el = document.getElementById(i)
+        el.scrollIntoView()
+      }, 200)
     },
   },
 }
