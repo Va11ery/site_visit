@@ -272,7 +272,7 @@
     >
 
     <div class="pb-5 pt-5">
-      <carousel-3d :controls-visible="true" height="494.27" display="5">
+      <carousel-3d :controls-visible="true" height="494.27" display="4">
         <slide v-for="(slide, i) in lisence" :key="i" :index="i">
           <template slot-scope="{ index, isCurrent, leftIndex, rightIndex }">
             <img
@@ -356,23 +356,19 @@ export default {
       modal: [],
       lisence: [
         {
-          img: '1.jpg',
+          img: '1_1.png',
           modal: false,
         },
         {
-          img: '2.jpg',
+          img: '2_2.png',
           modal: false,
         },
         {
-          img: '3.jpg',
+          img: '3_3.png',
           modal: false,
         },
         {
-          img: '4.jpg',
-          modal: false,
-        },
-        {
-          img: '5.jpg',
+          img: '4_4.png',
           modal: false,
         },
       ],

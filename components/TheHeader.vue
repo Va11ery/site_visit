@@ -1,16 +1,18 @@
 <template>
   <v-app-bar app height="75" class="" dark color="grey darken-3" elevation="16">
-    <v-btn class="" fab @click.prevent="scrollMain()">
-      <v-img
-        id="logo"
-        :src="require('~/assets/img/logo.png')"
-        max-height="65"
-        max-width="65"
-      ></v-img>
-    </v-btn>
-    <v-toolbar-title class="ml-5" style="text-shadow: 2px 2px 2px black"
-      >Охранная Организация КГБ</v-toolbar-title
-    >
+    <div v-ripple style="display: flex; align-items: center;" @click.prevent="scrollMain()">
+      <v-btn class="" fab >
+        <v-img
+          id="logo"
+          :src="require('~/assets/img/logo.png')"
+          max-height="65"
+          max-width="65"
+        ></v-img>
+      </v-btn>
+      <v-toolbar-title class="ml-5" style="text-shadow: 2px 2px 2px black; align-items: center; display: flex;"
+        >Охранная Организация КГБ</v-toolbar-title
+      >
+    </div>
     <v-spacer class="adaptive"></v-spacer>
     <v-app-bar-nav-icon
       class="adaptive"
