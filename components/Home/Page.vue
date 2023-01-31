@@ -24,8 +24,11 @@
       <v-list color="#616161" dark>
         <v-row>
           <v-col>
-            <v-card dark color="#616161" elevation="0" class="color-card" >
-              <v-card-text class="list-content text-h6 pa-2 pt-5 pb-5" style="color: white">
+            <v-card dark color="#616161" elevation="0" class="color-card">
+              <v-card-text
+                class="list-content text-h6 pa-2 pt-5 pb-5"
+                style="color: white"
+              >
                 <span style="padding-left: 100px"></span> Карго Глобал
                 Безопасность - это команда опытных сотрудников, которая
                 обеспечит надежную охрану вашей жизни, а также возьмет на себя
@@ -38,7 +41,10 @@
           </v-col>
           <v-col>
             <v-card dark color="#616161" elevation="0" class="color-card">
-              <v-card-text class="list-content text-h6 pa-2 pt-5 pb-5" style="color: white">
+              <v-card-text
+                class="list-content text-h6 pa-2 pt-5 pb-5"
+                style="color: white"
+              >
                 <span style="padding-left: 100px"></span>Сотрудники офиса
                 постоянно повышают свою квалификацию для стратегического
                 развития охранной организации. Наши охранники повышают свою
@@ -292,6 +298,29 @@
     </div>
 
     <v-banner
+      id="cargo_support"
+      single-line
+      elevation="21"
+      class="page-title text-center page-h6 w-100"
+      color="grey darken-3"
+    >
+      <div>Наши клиенты</div></v-banner
+    >
+    <v-row align="center">
+      <v-col v-for="(client, index) in clients" :key="index">
+        <div>
+          <v-img
+            style="margin: 0 auto"
+            :width="client.width"
+            :height="client.height"
+            :src="require(`~/assets/img/${client.img}`)"
+          ></v-img>
+          <div class="text-center">{{ client.title }}</div>
+        </div>
+      </v-col>
+    </v-row>
+
+    <v-banner
       id="contacts"
       single-line
       elevation="21"
@@ -341,6 +370,24 @@ export default {
   },
   data() {
     return {
+      clients: [
+        {
+          title: 'СПб ГБУЗ "СЗЦККЛС"',
+          img: 'clients_1.png',
+          width: 179,
+          height: 179,
+        },
+        {
+          img: 'logo_2.jpg',
+          width: 216,
+          height: 92,
+        },
+        {
+          img: 'logo3_1.svg',
+          width: 216,
+          height: 92,
+        },
+      ],
       contacts: [
         { text: '8 (812) 224 24 96', icon: 'mdi-cellphone' },
         { text: 'op.kgb@mail.ru', icon: 'mdi-email' },
