@@ -23,7 +23,8 @@
       <v-tab @click.prevent="scrollMain()">Главная</v-tab>
       <v-tab to="/services">Услуги</v-tab>
       <v-tab @click.prevent="scrollPage('licenses', 3)">Лицензии</v-tab>
-      <v-tab @click.prevent="scrollPage('contacts', 4)">Контакты</v-tab>
+      <v-tab @click.prevent="scrollPage('clients', 4)">Клиенты</v-tab>
+      <v-tab @click.prevent="scrollPage('contacts', 5)">Контакты</v-tab>
       <v-tab to="/vacancy">Вакансии</v-tab>
     </v-tabs>
 

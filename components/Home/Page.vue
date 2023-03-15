@@ -298,7 +298,7 @@
     </div>
 
     <v-banner
-      id="cargo_support"
+      id="clients"
       single-line
       elevation="21"
       class="page-title text-center page-h6 w-100"
@@ -306,17 +306,16 @@
     >
       <div>Наши клиенты</div></v-banner
     >
-    <v-row align="center">
-      <v-col v-for="(client, index) in clients" :key="index">
-        <div>
-          <v-img
-            style="margin: 0 auto"
-            :width="client.width"
-            :height="client.height"
-            :src="require(`~/assets/img/${client.img}`)"
-          ></v-img>
-          <div class="text-center">{{ client.title }}</div>
-        </div>
+    <v-row align="center" no-gutters>
+      <v-col v-for="(client, index) in clients" :key="index" class="pa-2" col="6">
+        <v-img
+          style="margin: 0 auto"
+          :width="client.width"
+          :height="client.height"
+          :src="require(`~/assets/img/${client.img}`)"
+        ></v-img>
+
+        <div class="text-center">{{ client.title }}</div>
       </v-col>
     </v-row>
 
@@ -377,15 +376,25 @@ export default {
           width: 179,
           height: 179,
         },
+
+        {
+          img: 'logo3_1.svg',
+          width: 216,
+          height: 92,
+        },
         {
           img: 'logo_2.jpg',
           width: 216,
           height: 92,
         },
         {
-          img: 'logo3_1.svg',
-          width: 216,
-          height: 92,
+          img: 'P_white.svg',
+          width: 400,
+        },
+        {
+          title: 'Мечеть СПБ',
+          img: 'm_white.png',
+          width: 150
         },
       ],
       contacts: [

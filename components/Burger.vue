@@ -51,6 +51,11 @@ export default {
         },
         {
           icon: 'mdi-account-box ',
+          title: 'Клиенты',
+          scroll: 'clients',
+        },
+        {
+          icon: 'mdi-account-box ',
           title: 'Контакты',
           scroll: 'contacts',
         },
